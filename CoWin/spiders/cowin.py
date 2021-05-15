@@ -12,14 +12,24 @@ class CowinSpider(scrapy.Spider):
         self.wb = webdriver.Chrome()
         self.wb.get('https://selfregistration.cowin.gov.in/')
         inputOTP = self.wb.find_element_by_xpath('//input[@type="number"]')
-        # inputOTP.click()
+        inputOTP.click()
         inputOTP.send_keys(9328625398)
         otpButton = self.wb.find_element_by_xpath('//ion-button[@type = "button"]')
         otpButton.click()
         time.sleep(2)
-        print("hiiiii")
         otpField = self.wb.find_element_by_xpath('//input[@formcontrolname = "otp"]')
-        otpField.send_keys(883782)
+        while True :
+            time.sleep(10)
+            if(len(otpField.get_attribute('value')) == 6) :
+                print("hiiiiiiiiiiihihihhihihihihihiiiiihihi")
+                otp2button = self.wb.find_element_by_xpath('//ion-button[@type = "button"]')
+                otp2button.click()
+                break
+        time.sleep(2)
+        scheduleButton = self.wb.find_element_by_xpath('//a[@class = "not-now add-more"]')
+        scheduleButton.click()
+        # otpField.click()
+        # otpField.send_keys(999999)
 
     def parse(self, response):
         pass
