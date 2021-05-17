@@ -19,15 +19,15 @@ class CowinSpider(scrapy.Spider):
         time.sleep(2)
         otpField = self.wb.find_element_by_xpath('//input[@formcontrolname = "otp"]')
         while True :
-            time.sleep(10)
+            time.sleep(7)
             if(len(otpField.get_attribute('value')) == 6) :
-                print("hiiiiiiiiiiihihihhihihihihihiiiiihihi")
+                # print("hiiiiiiiiiiihihihhihihihihihiiiiihihi")
                 otp2button = self.wb.find_element_by_xpath('//ion-button[@type = "button"]')
                 otp2button.click()
-                break
-        time.sleep(2)
-        scheduleButton = self.wb.find_element_by_xpath('//a[@class = "not-now add-more"]')
-        scheduleButton.click()
+                # break
+        # time.sleep(2)
+        # scheduleButton = self.wb.find_element_by_xpath('//div[@class = "covid-button-desktop book-btn ng-star-inserted"]')
+        # scheduleButton.click()
         # otpField.click()
         # otpField.send_keys(999999)
 
